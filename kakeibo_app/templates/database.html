@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/database.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>入力履歴</h2>
+</div>
+
+<table>
+    <tr>
+        <th>年</th>
+        <th>月</th>
+        <th>支出項目</th>
+        <th>金額</th>
+        <th>入力日</th>
+    </tr>
+    {% for item in all_data %}
+        <tr>
+            <td>{{ item.year }}</td>
+            <td>{{ item.month }}</td>
+            <td>{{ item.get_cost_display }}</td>
+            <td>{{ item.money }}</td>
+            <td>{{ item.date }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<div class="pagination">
+    <ul class="pagination">
+        {% if all_data.has_previous %}
+        <li class="page-item">
+            <a href="{% url 'kakeibo_app:database' %}" class="page-link">&laquo; first</a>
+        </li>
+        
+        <li class="page-item">
+            <a href="{% url 'kakeibo_app:database' %}{{ all_data.previous_page_number }}" class="page-link">&laquo; prev</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link">&laquo; first</a>
+        </li>
+        
+        <li class="page-item">
+            <a class="page-link">&laquo; prev</a>
+        </li>
+        {% endif %}
+        <li class="page-item">
+            <a class="page-link">{{ all_data.number }}/{{ all_data.paginator.num_pages }}</a>
+        </li>
+        {% if all_data.has_next %}
+        <li class="page-item">
+            <a href="{% url 'kakeibo_app:database' %}{{ all_data.next_page_number }}" class="page-link">next &raquo;</a>
+        </li>
+        
+        <li class="page-item">
+            <a href="{% url 'kakeibo_app:database' %}{{ all_data.paginator.num_pages }}" class="page-link">last &raquo;</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link">next &raquo;</a>
+        </li>
+        
+        <li class="page-item">
+            <a class="page-link">last &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+    {% endblock content %}

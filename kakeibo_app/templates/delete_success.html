@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/success.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>削除</h2>
+</div>
+<div class="success-message">
+    <p>削除が完了しました</p>
+    <p>支出項目：{{ cost }}</p>
+    <p>年：{{ year }}年</p>
+    <p>月：{{ month }}月</p>
+    <p>金額：{{ money }}円</p>
+    <p>メモ：{{ memo }}</p>
+    <a href="{% url 'kakeibo_app:delete_start' %}">削除を続ける</a>
+</div>
+{% endblock content %}

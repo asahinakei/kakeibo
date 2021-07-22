@@ -1,0 +1,63 @@
+table {
+  background-color: white;
+  border-collapse: collapse;
+  width: 98%;
+  margin: 0px 1%;
+  height: 70vh;
+  font-size: 0.9rem;
+}
+
+table th, table td {
+  border: solid 1px;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  main table {
+    font-size: 1.5rem;
+  }
+}
+
+.pagination {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pagination ul {
+  padding: 0px;
+}
+
+.pagination li {
+  background-color: white;
+  list-style: none;
+  padding: 5px;
+  margin: 1px;
+  border: solid 2px;
+  border-collapse: collapse;
+  border-radius: 10%;
+}
+
+.pagination li:nth-child(3) {
+  border: none;
+  background-color: #faf3eb;
+}
+
+@media screen and (min-width: 768px) {
+  main .pagination ul li {
+    font-size: 1.5rem;
+    border: solid 4px;
+  }
+}
+/*# sourceMappingURL=database.css.map */

@@ -1,0 +1,17 @@
+main form .container .item p.multi {
+  line-height: normal;
+}
+
+main form .button input {
+  width: 45%;
+}
+
+@media screen and (min-width: 768px) {
+  main form .container .item p.multi {
+    line-height: 9vh;
+  }
+  main form .button input {
+    width: 30%;
+  }
+}
+/*# sourceMappingURL=multi-form.css.map */

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>比較</h2>
+</div>
+<form action="{% url 'kakeibo_app:comparison_start' %}" method="POST" >
+    {% csrf_token %}
+    <div class="container">
+        <div class="item-label">
+            <p>支出項目</p>
+            <p>比較年数</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ form_1.cost }}</p>
+            <p>{{ form_1.how_many_years }}</p>
+        </div>
+    </div>
+    
+    <div class="button">
+        <input type="submit" value="進む" >
+    </div>
+</form>
+
+{% endblock content %}

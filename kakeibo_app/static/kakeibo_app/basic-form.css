@@ -1,0 +1,178 @@
+form {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+form .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 65vh;
+}
+
+form .container .item-label {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+form .container .item-label p {
+  text-align: center;
+  font-size: 1.2rem;
+  height: 9vh;
+  line-height: 9vh;
+}
+
+form .container .item {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+form .container .item p {
+  text-align: left;
+  font-size: 1.2rem;
+  height: 9vh;
+  line-height: 9vh;
+}
+
+form .container .item p textarea {
+  height: 9vh;
+  width: 90%;
+}
+
+form .container .item p input {
+  width: 60%;
+}
+
+form .container .item p.money {
+  padding: 0 !important;
+}
+
+form .button {
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .button input {
+  display: inline-block;
+  text-align: center;
+  width: 25%;
+  font-size: 1.2rem;
+  margin: 3%;
+}
+
+@media screen and (min-width: 768px) {
+  form .container .item-label p {
+    font-size: 2rem;
+  }
+  form .container .item p {
+    font-size: 2rem;
+  }
+  form .container .item p select {
+    font-size: 2rem;
+  }
+  form .container .item p input {
+    font-size: 2rem;
+  }
+  form .container .item p textarea {
+    font-size: 2rem;
+  }
+  form .button input {
+    font-size: 3rem;
+    width: 10%;
+  }
+}
+
+.error-message {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.error-message p {
+  width: 90%;
+}
+
+.error-message form {
+  height: 10vh;
+  width: 100%;
+}
+
+.error-message .button {
+  height: 15vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.error-message .button input {
+  display: inline-block;
+  text-align: center;
+  width: 25%;
+  font-size: 1.2rem;
+  margin: 3%;
+}
+
+@media screen and (min-width: 768px) {
+  main .error-message p {
+    font-size: 2rem;
+  }
+  main .error-message .button input {
+    font-size: 2rem;
+    width: 10%;
+  }
+}
+/*# sourceMappingURL=basic-form.css.map */

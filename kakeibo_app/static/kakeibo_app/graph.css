@@ -1,0 +1,117 @@
+main {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form {
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form .container {
+  height: 10vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main form .container .item-label p {
+  text-align: center;
+}
+
+main form .container .item p {
+  text-align: center;
+}
+
+main form .container .item p select {
+  width: 50%;
+}
+
+main form .button {
+  height: 5vh;
+}
+
+main .table {
+  height: 15vh;
+  width: auto;
+  white-space: nowrap;
+  overflow: scroll;
+}
+
+main .table table {
+  background-color: white;
+  height: 100%;
+  width: 250%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: center;
+}
+
+main .table table tr, main .table table th, main .table table td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+
+main .graph {
+  height: 50vh;
+}
+
+main .graph img {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  main form .container .item-label p {
+    margin: 2px auto;
+    font-size: 1.5rem;
+  }
+  main form .container .item p {
+    margin: 2px auto;
+  }
+  main form .container .item p select {
+    font-size: 1.5rem;
+  }
+  main form .button input {
+    font-size: 1.5rem;
+  }
+  main .table {
+    height: 10vh;
+    width: auto;
+    font-size: 1.5rem;
+  }
+  main .table table {
+    height: auto;
+    width: 80%;
+    margin: auto;
+  }
+  main .table table td {
+    padding: 5px;
+  }
+  main .graph {
+    height: 55vh;
+  }
+  main .graph img {
+    width: auto;
+  }
+}
+/*# sourceMappingURL=graph.css.map */

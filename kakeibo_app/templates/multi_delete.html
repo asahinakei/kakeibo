@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+<link rel="stylesheet" href="{% static 'kakeibo_app/message-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>まとめて削除</h2>
+</div>
+
+<div class="message">
+    <p>削除を実行します</p>
+</div>
+
+<form action="{% url 'kakeibo_app:multi_delete' %}" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        {{ field.as_hidden }}
+    {% endfor %}
+
+    <div class="container">
+        <div class="item-label">
+            <p>支出項目</p>
+            <p>開始期間</p>
+            <p>終了期間</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ cost }}</p>
+            <p>{{ form.year_1.value }}年 {{ form.month_1.value }}月から</p>
+            <p>{{ form.year_2.value }}年 {{ form.month_2.value }}月まで</p>
+        </div>
+    </div>
+
+    <div class="button">
+        <input type="button" onclick=history.back(-1) value="戻る">
+        <input type="submit" value="実行">
+    </div>
+</form>
+{% endblock content %}

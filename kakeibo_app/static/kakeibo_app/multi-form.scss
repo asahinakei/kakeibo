@@ -1,0 +1,34 @@
+main {
+    & form {
+        & .container {
+            & .item {
+                & p.multi {
+                    line-height: normal;
+                }
+            }
+        }
+        & .button {
+            & input {
+                width: 45%;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & form {
+            & .container {
+                & .item {
+                    & p.multi {
+                        line-height: 9vh;
+                    }
+                }
+            }
+            & .button {
+                & input {
+                    width: 30%;
+                }
+            }
+        }
+    }
+}

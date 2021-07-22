@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'users/logout.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+    <div class="subtitle">
+        <h2>ログアウト</h2>
+    </div>
+    <p>ログアウトしました。</p>
+    <p>ご利用ありがとうございました。</p>  
+{% endblock content %}

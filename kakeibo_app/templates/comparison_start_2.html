@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+<link rel="stylesheet" href="{% static 'kakeibo_app/message-form.css' %}" />
+{% endblock css-file %}
+{% block content %}
+<div class="subtitle">
+    <h2>比較</h2>
+</div>
+
+<div class="message">
+    <p>{{ cost }}代を{{ years }}年分比較します。</p>
+</div>
+
+<form action="{% url 'kakeibo_app:comparison' %}" method="POST" >
+    {% for field in form_1 %}
+        {{ field.as_hidden }}
+    {% endfor %}
+    {% csrf_token %}
+    <div class="container">
+    {% if years == 2 %}
+        <div class="item-label">
+            <p>年-1</p>
+            <p>年-2</p>
+        </div>
+    
+        <div class="item">
+            <p>{{ form_2.year_1 }}</p>
+            <p>{{ form_2.year_2 }}</p>
+        </div>
+    {% elif years == 3 %}
+        <div class="item-label">
+            <p>年-1</p>
+            <p>年-2</p>
+            <p>年-3</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ form_2.year_1 }}</p>
+            <p>{{ form_2.year_2 }}</p>
+            <p>{{ form_2.year_3 }}</p>
+        </div>
+    {% elif years == 4 %}
+        <div class="item-label">
+            <p>年-1</p>
+            <p>年-2</p>
+            <p>年-3</p>
+            <p>年-4</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ form_2.year_1 }}</p>
+            <p>{{ form_2.year_2 }}</p>
+            <p>{{ form_2.year_3 }}</p>
+            <p>{{ form_2.year_4 }}</p>
+        </div>
+    {% elif years == 5 %}
+        <div class="item-label">
+            <p>年-1</p>
+            <p>年-2</p>
+            <p>年-3</p>
+            <p>年-4</p>
+            <p>年-5</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ form_2.year_1 }}</p>
+            <p>{{ form_2.year_2 }}</p>
+            <p>{{ form_2.year_3 }}</p>
+            <p>{{ form_2.year_4 }}</p>
+            <p>{{ form_2.year_5 }}</p>  
+        </div>
+    {% elif years == 6 %}
+        <div class="item-label">
+            <p>年-1</p>
+            <p>年-2</p>
+            <p>年-3</p>
+            <p>年-4</p>
+            <p>年-5</p>
+            <p>年-6</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ form_2.year_1 }}</p>
+            <p>{{ form_2.year_2 }}</p>
+            <p>{{ form_2.year_3 }}</p>
+            <p>{{ form_2.year_4 }}</p>
+            <p>{{ form_2.year_5 }}</p>
+            <p>{{ form_2.year_6 }}</p>
+        </div>
+    {% endif %}
+    </div>
+
+    <div class="button">
+        <input type="button" onclick=history.back(-1) value="戻る">
+        <input type="submit" value="表示" >
+    </div>
+</form>
+
+
+{% endblock content %}

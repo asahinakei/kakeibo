@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/index.css' %}" />
+{% endblock css-file %}
+{% block content %}
+
+<div class="subtitle">
+    <h2>メニュー</h2>
+</div>
+
+<div class="menu no-1">
+	<div class="big-menu">
+		<a href="{% url 'kakeibo_app:entry' %}">入力</a>
+	</div>
+
+	<div class="container">
+		<div class="explain">
+			<p class="for-mobile">データ入力を行うことができます。<span class="br"></span>固定費はまとめて入力がオススメ。</p>
+			<p class="for-pc">データ入力を行います。<span class="br"></span>固定費は、まとめて入力することもできます。</p>
+		</div>
+
+		<div class="small-menu">
+			<a href="{% url 'kakeibo_app:multi_entry' %}">まとめて<span class="br"></span>入力</a>
+		</div>
+	</div>
+</div>
+
+<div class="menu no-2">
+	<div class="big-menu">
+		<a href="{% url 'kakeibo_app:edit_start' %}">編集</a>
+	</div>
+
+	<div class="container">
+		<div class="explain">
+			<p class="for-mobile">入力を行ったデータの金額・メモは何度でも変更ができます。</p>
+			<p class="for-pc">入力を行ったデータの金額・メモは何度でも変更をすることができます。</p>
+		</div>
+	</div>
+</div>
+
+<div class="menu no-3">
+	<div class="big-menu">
+		<a href="{% url 'kakeibo_app:delete_start' %}">削除</a>
+	</div>
+	<div class="container">
+		<div class="explain">
+			<p class="for-mobile">誤って入力をしてしまったデータを削除します。</p>
+			<p class="for-pc">誤って入力をしてしまったデータがあれば、削除することができます。複数の期間分をまとめて削除することもできます。</p>
+		</div>
+
+		<div class="small-menu">
+			<a class="small-menu" href="{% url 'kakeibo_app:multi_delete_start' %}">まとめて<span class="br"></span>削除</a>
+		</div>
+	</div>
+		
+</div>
+
+<div class="menu no-4">
+	<div class="big-menu">
+		<a href="{% url 'kakeibo_app:comparison_start' %}">比較</a>
+	</div>
+
+	<div class="container">
+		<div class="explain">
+			<p class="for-mobile">金額の増減をグラフやテーブルで表示させます。</p>
+			<p class="for-pc">金額の増減をグラフやテーブルで表示させることができます。</p>
+		</div>
+
+		<div class="small-menu">
+			<a href="{% url 'kakeibo_app:table' %}">テーブル</a>
+			<a href="{% url 'kakeibo_app:graph' %}">グラフ</a>
+			<a href="{% url 'kakeibo_app:database' %}">入力履歴</a>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

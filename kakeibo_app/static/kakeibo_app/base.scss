@@ -1,0 +1,228 @@
+$cWhite: hsl(32, 57%, 95%);
+$cBlack: black;
+* {
+	font-family: 'Shippori Mincho', serif;
+	box-sizing: border-box;
+    margin: 0px;
+    color: black;
+}
+a {
+    text-decoration: none;
+    &:visited {
+        color: $cBlack;
+    }
+}
+body {
+    background-color: $cWhite;
+}
+header {
+	height: 8vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+    border-bottom: $cBlack groove 1px;
+	& .title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30%;
+		& h1 {
+			font-size: 1.5rem;
+		}
+	}
+
+	& .container {
+		width: 70%;
+		display: flex;
+		flex-direction: row;
+        & .hello-message {
+            width: 75%;
+            text-align: center;
+            margin: auto;
+            & p {
+                height: 50%;
+                font-size: 0.8rem;
+            }
+            & a {
+                text-decoration: underline;
+            }
+        }
+        & .bg-area {
+            width: 25%;
+            z-index: 100;
+            position: relative;
+            & .bg-button {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                & span {
+                    height: 2px;
+                    width: 50%;
+                    background-color: black;
+                    display: inline-block;
+                    transition: transform 1s;
+                    &:nth-child(2) {
+                        width: 40%;
+                    }
+                    &:nth-child(3) {
+                        width: 30%;
+                    }
+                }
+            }
+            & .slide-menu {
+                background-color: $cWhite;
+                position: absolute;
+                opacity: 0;
+                left: 100%;
+                transition: all 1s;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100vw;
+                height: 87vh;
+                z-index: 10;
+                & .login {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    height: 6vh;
+                    width: 95%;
+                }
+                & .menu {
+                    height: 81vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    & p {
+                        @for $i from 1 through 9 {
+                            &:nth-child(#{$i}) a::before {
+                                content: "menu_#{$i}　　";
+                                font-size: 0.8rem;
+                            }
+                        }
+                        & a {
+                            padding: 5px;
+                            font-style: italic;
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            & input.toggle {
+                display: none;
+                &:checked {
+                    & ~ .slide-menu {
+                        transition: all 1s;
+                        transform: translateX(-100%);
+                        opacity: 1;
+                    } 
+                    & + label.button-area .bg-button span {
+                        transition: all 1s;
+                        &:nth-child(1) {
+                            transform: translateY(2vh) rotate(45deg);
+                        }
+                        &:nth-child(2) {
+                            transform: scale(0);
+                        }
+                        &:nth-child(3) {
+                            transform: translateY(-2vh) rotate(135deg);
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+	}
+}
+
+
+@media screen and (min-width: 768px) {
+    & header {
+        & .title {
+            width: 20%;
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+        & .container {
+            width: 80%;
+            & .hello-message {
+                width: 90%;
+                text-align: end;
+                & p {
+                    display: inline-block;
+                    font-size: 1rem;
+                }
+            }
+            & .bg-area {
+                width: 10%;
+                & .slide-menu {
+                    & .login {
+                        & p {
+                            & a {
+                                font-size: 1.5rem;
+                            }
+                        }
+                    }
+                    & .menu {
+                        & p {
+                            & a {
+                                font-size: 3.5rem;
+                                &::before {
+                                    font-size: 2rem !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+	
+main {
+	height: 87vh;
+	display: flex;
+	flex-direction: column;
+	& .subtitle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 7vh;
+		& h2 {
+			font-size: 1.5rem;
+		}
+    }
+    & .error-message {
+        & p {
+            & a {
+                color: blue;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & .subtitle {
+            & h2 {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+footer {
+    height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	& p {
+		font-size: 1rem;
+    }
+}

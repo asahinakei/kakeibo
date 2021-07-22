@@ -1,0 +1,66 @@
+header {
+    width: auto;
+}
+main {
+    height: auto;
+    align-items: center;
+    & form {
+        display: flex;
+        align-content: center; 
+        justify-content: center;
+        height: 5vh;
+    }
+    .table {
+        width: 95%;
+        height: 75vh;
+        overflow: scroll;
+        border-radius: 5px;
+        & .fixed {
+            position: sticky;
+            left: 0;
+            top: 0;
+            &.over {
+                z-index: 5;
+            }
+        }
+        & table {
+            background-color: white;
+            border-spacing: 0;
+            margin: 5% auto;
+            text-align: center;
+            border: 1px solid grey;
+            font-size: 1.3rem;
+            white-space: nowrap;
+            & tr, th, td {
+                border: 2px solid grey;
+            }
+            & td {
+                padding: 10px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & form {
+            & p {
+                margin: auto 10px;
+                & select {
+                    font-size: 1.5rem;
+                }
+            }
+            & input {
+                font-size: 1.5rem;
+            }
+        }
+        & .table {
+            overflow: auto;
+            & table {
+                margin: 1% auto;
+            }
+        }
+    }
+}
+footer {
+    width: auto;
+}

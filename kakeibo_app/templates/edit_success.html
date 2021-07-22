@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/success.css' %}" />
+{% endblock css-file %}
+
+
+{% block content %}
+
+<div class="subtitle">
+    <h2>編集</h2>
+</div>
+
+<div class="success-message">
+    <p>データが更新されました。</p>
+    <p>支出項目：{{ qs.get_cost_display }}</p>
+    <p>年：{{ qs.year }}年</p>
+    <p>月：{{ qs.month }}月</p>
+    <p>金額：{{ qs.money }}円</p>
+    <p>メモ：{{ qs.memo }}</p>
+    <a href="{% url 'kakeibo_app:edit_start' %}">編集を続ける</a>
+</div>
+
+{% endblock content %}

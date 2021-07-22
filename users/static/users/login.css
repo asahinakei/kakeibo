@@ -1,0 +1,49 @@
+main form {
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form .button {
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form .button button {
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  main form p {
+    font-size: 2rem;
+  }
+  main form p input {
+    font-size: 1.5rem;
+  }
+  main form ul {
+    font-size: 2rem;
+  }
+  main form .button button {
+    font-size: 2rem;
+  }
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,55 @@
+$cWhite: hsl(32, 57%, 95%);
+table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 98%;
+    margin: 0px 1%;
+    height: 70vh;
+    font-size: 0.9rem;
+    & th, td {
+        border: solid 1px;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & table {
+        font-size: 1.5rem;
+        }
+    }
+}
+.pagination {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    & ul {
+        padding: 0px;
+    }
+    & li {
+        background-color: white;
+        list-style: none;
+        padding: 5px;
+        margin: 1px;
+        border: solid 2px;
+        border-collapse: collapse;
+        border-radius: 10%;
+        &:nth-child(3) {
+            border: none;
+            background-color: $cWhite;
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & .pagination {
+            & ul {
+                & li {
+                    font-size: 1.5rem;
+                    border: solid 4px;
+                }
+            }
+        }
+    }
+}

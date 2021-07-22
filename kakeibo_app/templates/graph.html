@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/graph.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>グラフ</h2>
+</div>
+<form action="{% url 'kakeibo_app:graph'%}" method="POST" >
+    {% csrf_token %}
+    <div class="container">
+        <div class="item-label">
+            <p>支出項目</p>
+            <p>年</p>
+        </div>
+
+        <div class="item">
+            <p>{{ form.cost }}</p>
+            <p>{{ form.year }}</p>
+        </div>
+    </div>
+
+    <div class="button">
+        <input type="submit" value="再表示">
+    </div>
+</form>
+
+<div class="table">
+    <table>
+        <tr>
+            <th>年/月</th>
+            {% for month in month_list %}
+            <th>{{ month }}</th>
+            {% endfor %}
+            <th>計</th>
+        </tr>
+        
+        <tr>
+            <th>{{ form.year.value }}</th>
+            {% for cost in cost_list %}
+            <td>{{ cost }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+{% if chart %}
+    <div class="graph">
+        <img src="data:image/png;base64, {{chart|safe}}">
+    </div>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/table.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>テーブル</h2>
+</div>
+
+<form action="{% url 'kakeibo_app:table' %}" method="POST">
+    {% csrf_token %} 
+    <p>{{ form.year }}</p>
+    <input type="submit" value="再表示" />
+</form>
+
+<div class="table">
+    <table>
+    <!-- 1行目 -->
+        <tr>
+            <th colspan="14">{{ year }}年</th>
+        </tr>
+    <!-- 2行目 -->
+        <tr>
+            <th class="fixed over">項目\月</th>
+            {% for month in month_list %}
+                <th class="fixed">{{ month }}</th>
+            {% endfor %}
+            <th class="fixed">計</th>
+        </tr>
+    <!-- 3行目以降 -->
+        {% for cost, money_list in money_dict.items %}
+        <tr>
+            <th class="fixed">{{ cost }}</th>
+            {% for money in money_list %}
+                <td>{{ money }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    <!-- 最終行 -->
+        <tr>
+            <th class="fixed">合計</th>
+            {% for sum in each_month_sum %}
+                <td>{{ sum }}</td>
+            {% endfor %}
+                <td>{{ all_sum }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock content %}

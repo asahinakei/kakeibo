@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+       <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'kakeibo_app/base.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">        {% block css-file %}
+        {% endblock css-file %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>家計簿</title>
+    </head>
+
+  <body>
+        <header>
+            <div class="title">
+                <a href="{% url 'kakeibo_app:index' %}">
+                    <h1>家計簿</h1>
+                </a>   
+            </div>
+
+            <div class="container">
+                <div class="hello-message">
+                    {% if user.is_authenticated %}
+                        <p>ようこそ</p>
+                        <p>{{ user.username }}さん</p>
+                    {% else %}
+                        <p><a href="{% url 'users:register' %}">新規登録</a></p>
+                        <p><a href="{% url 'users:login' %}">ログイン</a></p>
+                    {% endif %}
+                    </div>
+                    
+                    <div class="bg-area">
+                        <input type="checkbox" name="Togle" id="Toggle" class="toggle">
+                        <label for="Toggle" class="button-area">
+                            <div class="bg-button">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                        </label>
+                        
+                        <div class="slide-menu">
+                            <div class="login">
+                                {% if user.is_authenticated %}
+                                    <p><a href="{% url 'users:logout' %}">ログアウト</a></p>
+                                {% endif %}
+                            </div>
+                            <div class="menu">
+                                <p><a href="{% url 'kakeibo_app:entry' %}">入力</a></p>
+                                <p><a href="{% url 'kakeibo_app:multi_entry' %}">まとめて入力</a></p>
+                                <p><a href="{% url 'kakeibo_app:edit_start' %}">編集</a></p>
+                                <p><a href="{% url 'kakeibo_app:delete_start' %}">削除</a></p>
+                                <p><a href="{% url 'kakeibo_app:multi_delete_start' %}">まとめて削除</a></p>
+                                <p><a href="{% url 'kakeibo_app:comparison_start' %}">比較</a></p>
+                                <p><a href="{% url 'kakeibo_app:table' %}">テーブル</a></p>
+                                <p><a href="{% url 'kakeibo_app:graph' %}">グラフ</a></p>
+                                <p><a href="{% url 'kakeibo_app:database' %}">入力履歴</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+            </div>
+
+
+        </header>
+        <main>
+            {% block content %} 
+            {% endblock content %}
+        </main>
+        
+        <footer>
+          <p>&copy; AsahinaKei 2021</p>
+      </footer>
+  </body>
+</html>

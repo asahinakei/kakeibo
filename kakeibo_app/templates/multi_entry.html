@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+<link rel="stylesheet" href="{% static 'kakeibo_app/multi-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>まとめて入力</h2>
+</div>
+
+{% if year_month_frag %}
+    <div class="error-message">
+        <p>開始期間【{{ year_1 }}年{{ month_1 }}月】が終了期間【{{ year_2 }}年{{ month_2 }}月】より過去の日付でない場合、入力はできません。</p>
+        <div class="button">
+            <input type="button" onclick=history.back(-1) value="戻る">
+        </div>
+    </div>
+{% elif duplicate_frag %}
+    <div class="error-message">
+        <p>指定された【 {{ qs.get_cost_display }} 】 の 【 {{ year_1 }}年{{ month_1 }}月 】 から 【 {{ year_2 }}年{{ month_2 }}月 】まで、順に登録を試みましたが、【 {{ qs.year }}年 {{ qs.month }}月 】がすでに登録済みでした。</p>
+        <p>登録済みデータは<a href="javascript:to_delete.submit()">削除</a>から削除したり <a href="{% url 'kakeibo_app:table' %}" target="_blank"　rel="noopener">テーブル</a>から確認することができます。</p>
+    </div>
+
+    <form name=to_delete action="{% url 'kakeibo_app:del_start_from_multi_entry' %} " method="POST">
+        {% csrf_token %}
+        {{ del_data_form.code.as_hidden }}
+        <div class="button">
+            <input type="button" onclick=history.back(-1) value="戻る">
+        </div>
+    </form>
+{% else %}
+
+    <form action="{% url 'kakeibo_app:multi_entry' %} " method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="item-label">
+                <p>支出項目</p>
+                <p>開始期間</p>
+                <p>終了期間</p>
+                <p>金額</p>
+                <p>メモ</p>
+            </div>
+
+            <div class="item">
+                <p>{{ form.cost }}</p>
+                <p class="multi">{{ form.year_1 }} {{ form.month_1 }}から</p>
+                <p class="multi">{{ form.year_2 }} {{ form.month_2 }}まで</p>
+                <p>{{ form.money }}円</p>
+                <p>{{ form.memo }}</p>
+            </div>
+        </div>
+
+        <div class="button">
+            <input type="submit" value="まとめて登録">
+        </div>
+    </form>
+{% endif %}
+{% endblock content %}

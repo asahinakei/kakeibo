@@ -1,0 +1,69 @@
+main {
+    align-items: center;
+    & .button {
+        height: 5vh;
+        }
+    & .table {
+        height: 30vh;
+        width: 95%;
+        overflow: scroll;
+        white-space: nowrap;
+        & .fixed {
+            position: sticky;
+            left: 0;
+            top: 0;
+            &.over {
+                z-index: 5;
+            }
+        }
+        & table {
+            background-color: white;
+            border-spacing: 0;
+            border-collapse: collapse;
+            text-align: center;
+            width: 350%;
+            table-layout: fixed;
+            & tr, th, td {
+                border: 1px solid grey;
+                border-collapse: collapse;
+            }
+        }
+    }
+    & .graph {
+        height: 45vh;
+        & img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & .button {
+            height: 7vh;
+            line-height: 7vh;
+            & input {
+                font-size: 1.5rem;
+            }
+        }
+        & .table {
+            width: auto;
+            height: 33vh;
+            & table {
+                font-size: 1.5rem;
+                width: 85%;
+                table-layout: fixed;
+                margin: auto;
+                & td {
+                    padding: 0px 5px;
+                }
+            }
+        }
+        & .graph {
+            height: 40vh;
+            & img {
+                width: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'users/login.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>ログイン</h2>
+</div>
+<form method="POST" action="{% url 'users:login' %}">
+    {% if form.errors %}
+    <div class="error-message">
+        <p>ユーザー名とパスワードが一致しません。もう一度お試しください。</p>
+    </div>
+    {% endif %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="button">
+        <button name="submit">ログイン</button>
+        <input type="hidden" name="next" value="{% url 'kakeibo_app:index' %}" />
+    </div>
+</form>
+{% endblock content %}

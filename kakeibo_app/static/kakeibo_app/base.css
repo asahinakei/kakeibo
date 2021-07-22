@@ -1,0 +1,347 @@
+@charset "UTF-8";
+* {
+  font-family: 'Shippori Mincho', serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+body {
+  background-color: #faf3eb;
+}
+
+header {
+  height: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  border-bottom: black groove 1px;
+}
+
+header .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+}
+
+header .title h1 {
+  font-size: 1.5rem;
+}
+
+header .container {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header .container .hello-message {
+  width: 75%;
+  text-align: center;
+  margin: auto;
+}
+
+header .container .hello-message p {
+  height: 50%;
+  font-size: 0.8rem;
+}
+
+header .container .hello-message a {
+  text-decoration: underline;
+}
+
+header .container .bg-area {
+  width: 25%;
+  z-index: 100;
+  position: relative;
+}
+
+header .container .bg-area .bg-button {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .container .bg-area .bg-button span {
+  height: 2px;
+  width: 50%;
+  background-color: black;
+  display: inline-block;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+header .container .bg-area .bg-button span:nth-child(2) {
+  width: 40%;
+}
+
+header .container .bg-area .bg-button span:nth-child(3) {
+  width: 30%;
+}
+
+header .container .bg-area .slide-menu {
+  background-color: #faf3eb;
+  position: absolute;
+  opacity: 0;
+  left: 100%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 87vh;
+  z-index: 10;
+}
+
+header .container .bg-area .slide-menu .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 6vh;
+  width: 95%;
+}
+
+header .container .bg-area .slide-menu .menu {
+  height: 81vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(1) a::before {
+  content: "menu_1　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(2) a::before {
+  content: "menu_2　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(3) a::before {
+  content: "menu_3　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(4) a::before {
+  content: "menu_4　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(5) a::before {
+  content: "menu_5　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(6) a::before {
+  content: "menu_6　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(7) a::before {
+  content: "menu_7　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(8) a::before {
+  content: "menu_8　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p:nth-child(9) a::before {
+  content: "menu_9　　";
+  font-size: 0.8rem;
+}
+
+header .container .bg-area .slide-menu .menu p a {
+  padding: 5px;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header .container .bg-area input.toggle {
+  display: none;
+}
+
+header .container .bg-area input.toggle:checked ~ .slide-menu {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  opacity: 1;
+}
+
+header .container .bg-area input.toggle:checked + label.button-area .bg-button span {
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+header .container .bg-area input.toggle:checked + label.button-area .bg-button span:nth-child(1) {
+  -webkit-transform: translateY(2vh) rotate(45deg);
+          transform: translateY(2vh) rotate(45deg);
+}
+
+header .container .bg-area input.toggle:checked + label.button-area .bg-button span:nth-child(2) {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+header .container .bg-area input.toggle:checked + label.button-area .bg-button span:nth-child(3) {
+  -webkit-transform: translateY(-2vh) rotate(135deg);
+          transform: translateY(-2vh) rotate(135deg);
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  header .title {
+    width: 20%;
+  }
+  header .title h1 {
+    font-size: 3.5rem;
+  }
+  header .container {
+    width: 80%;
+  }
+  header .container .hello-message {
+    width: 90%;
+    text-align: end;
+  }
+  header .container .hello-message p {
+    display: inline-block;
+    font-size: 1rem;
+  }
+  header .container .bg-area {
+    width: 10%;
+  }
+  header .container .bg-area .slide-menu .login p a {
+    font-size: 1.5rem;
+  }
+  header .container .bg-area .slide-menu .menu p a {
+    font-size: 3.5rem;
+  }
+  header .container .bg-area .slide-menu .menu p a::before {
+    font-size: 2rem !important;
+  }
+}
+
+main {
+  height: 87vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 7vh;
+}
+
+main .subtitle h2 {
+  font-size: 1.5rem;
+}
+
+main .error-message p a {
+  color: blue;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  main .subtitle h2 {
+    font-size: 3rem;
+  }
+}
+
+footer {
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  font-size: 1rem;
+}
+/*# sourceMappingURL=base.css.map */

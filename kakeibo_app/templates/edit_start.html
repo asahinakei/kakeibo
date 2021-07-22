@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>編集</h2>
+</div>
+
+{% if no_exist_frag %}
+<div class="error-message">
+    <p>【 {{ cost }}代 {{ start_form.year.value }}年{{ start_form.month.value }}月 】はまだ登録されていません。</p>
+    <p>新たに<a href="javascript:to_entry.submit()">入力</a>するか、現在のデータを<a href="{% url 'kakeibo_app:table' %}" target="_blank"　rel="noopener">テーブル</a>からご確認ください。</p>
+</div>
+
+<form name="to_entry" action="{% url 'kakeibo_app:entry' %}" method="POST">
+    {% for field in entry_form %}
+        {% csrf_token %}
+        {{ field.as_hidden }}
+    {% endfor %}
+    <div class="button">
+        <input type="button" onclick=history.back(-1) value="戻る">
+    </div>
+</form>
+
+{% else %}
+    <form action="{% url 'kakeibo_app:edit_start' %}" method="POST" >
+        {% csrf_token %}
+        <div class="container">
+            <div class="item-label">
+                <p>支出項目</p>
+                <p>年</p>
+                <p>月</p>
+            </div>
+            
+            <div class="item">
+                <p>{{ start_form.cost }}</p>                
+                <p>{{ start_form.year }}</p>                
+                <p>{{ start_form.month }}</p>                
+            </div>
+        </div>
+
+        <div class="button">
+            <input type="submit" value="編集">
+        </div>
+    </form>
+{% endif %}
+
+{% endblock content %}

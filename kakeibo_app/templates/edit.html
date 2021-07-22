@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>編集</h2>
+</div>
+
+{% if no_change_frag %}
+    <div class="error-message">
+        <p>変更前と変更後データが同じです。変更後の金額・メモをご確認ください。</p>
+        <div class="button">
+            <input type="button" onclick=history.back(-1) value="戻る">
+        </div>
+    </div>
+{% else %}
+    {% if from_entry_frag %}
+        <form action="{% url 'kakeibo_app:edit_from_entry' %}" method="POST">
+    {% else %}
+        <form name="edit" action="{% url 'kakeibo_app:edit' %}" method="POST">
+    {% endif %}  
+
+    {% csrf_token %}
+    {% for field in start_form %}
+        {{ field.as_hidden }}
+    {% endfor %}
+    <div class="container">
+        <div class="item-label">
+            <p>支出項目</p>
+            <p>年</p>
+            <p>月</p>
+            <p>変更前-金額</p>
+            <p>変更前-メモ</p>
+            <p>変更後-金額</p>
+            <p>変更後-メモ</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ qs.get_cost_display }}</p>
+            <p>{{ qs.year }}年</p>
+            <p>{{ qs.month }}月</p>
+            <p>{{ qs.money }}円</p>
+            <p>{{ qs.memo }}</p>
+            <p>{{ form.money }}円</p>
+            <p>{{ form.memo }}</p>
+        </div>
+    </div>
+
+        <div name="edit" class="button">
+            <input type="button" onclick=history.back(-1) value="戻る">
+            <input type="submit" value="更新">
+        </div>
+    </form>
+{% endif %}
+{% endblock content %}

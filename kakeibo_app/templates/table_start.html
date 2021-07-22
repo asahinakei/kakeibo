@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>テーブル</h2>
+</div>
+
+<form action="{% url 'kakeibo_app:table' %}" method="POST">
+    {% csrf_token %} 
+    <div class="container">
+        <div class="item-label">
+            <p>年</p>
+        </div>
+        
+        <div class="item">
+            <p>{{ form.year }}</p>
+        </div>
+    </div>
+
+    <div class="button">
+        <input type="submit" value="表示" />
+    </div>
+</form>
+
+{% endblock content %}

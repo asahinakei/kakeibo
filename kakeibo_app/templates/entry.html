@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/basic-form.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>入力</h2>
+</div>
+{% if frag %}
+    <div class="error-message">
+        <p>指定された【 {{ cost }}代 {{ form.year.value }}年{{ form.month.value }}月 】には、すでに登録されたデータがあります。</p>
+        <p><a href="{% url 'kakeibo_app:table' %}" target="_blank">テーブル</a>からデータを確認するか、<a href="javascript:to_edit.submit()">編集</a>からデータを編集してください。</p>
+    
+        <form name="to_edit" action="{% url 'kakeibo_app:edit_start_from_entry' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.as_hidden }}
+            {% endfor %}
+            <div class="button">
+                <input type="button" onclick=history.back(-1) value="戻る">
+            </div>
+        </form>
+    </div>
+{% else %}
+    <form name="form" action="{% url 'kakeibo_app:entry' %}" method="POST" >
+        {% csrf_token %}
+        <div class="container">
+            <div class="item-label">
+                <p>支出項目</p>
+                <p>年</p>
+                <p>月</p>
+                <p>金額</p>
+                <p>メモ</p>
+            </div>
+            
+            <div class="item">
+                <p>{{ form.cost }}</p>
+                <p>{{ form.year }}</p>
+                <p>{{ form.month }}</p>
+                <p class="money">{{ form.money }}{{ form.money.help_text }}</P>
+                <p>{{ form.memo }}</p>    
+            </div>
+        </div>
+                
+        <div class="button">
+            <input type="submit" value="登録">
+        </div>
+    </form>
+{% endif %}
+
+{% endblock content %}

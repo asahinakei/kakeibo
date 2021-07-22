@@ -1,0 +1,80 @@
+main {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .button {
+  height: 5vh;
+}
+
+main .table {
+  height: 30vh;
+  width: 95%;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+main .table .fixed {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+
+main .table .fixed.over {
+  z-index: 5;
+}
+
+main .table table {
+  background-color: white;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: center;
+  width: 350%;
+  table-layout: fixed;
+}
+
+main .table table tr, main .table table th, main .table table td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+
+main .graph {
+  height: 45vh;
+}
+
+main .graph img {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  main .button {
+    height: 7vh;
+    line-height: 7vh;
+  }
+  main .button input {
+    font-size: 1.5rem;
+  }
+  main .table {
+    width: auto;
+    height: 33vh;
+  }
+  main .table table {
+    font-size: 1.5rem;
+    width: 85%;
+    table-layout: fixed;
+    margin: auto;
+  }
+  main .table table td {
+    padding: 0px 5px;
+  }
+  main .graph {
+    height: 40vh;
+  }
+  main .graph img {
+    width: auto;
+  }
+}
+/*# sourceMappingURL=comparison.css.map */

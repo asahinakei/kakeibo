@@ -1,0 +1,22 @@
+main {
+    & .message {
+        height: 10vh;
+        text-align: center;
+        line-height: 10vh;
+        & p {
+            font-size: 1.2rem;
+        }
+    }
+    & form {
+        height: 70vh !important;
+    }
+}
+@media screen and (min-width: 768px) {
+    & main {
+        & .message {
+            & p {
+                font-size: 2rem;
+            }
+        }
+    } 
+}

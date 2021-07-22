@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/comparison.css' %}" />
+{% endblock css-file %}
+{% block content %}
+
+<div class="subtitle">
+    <h2>比較</h2>
+</div>
+
+<div class="button">
+    <input type="button" onclick=history.back(-1) value="戻る">
+</div>
+
+<div class="table">
+    <table>
+        <tr>
+            <th class="fixed over">年＼月</th>
+            {% for month in month_list %}
+                <th class="fixed">{{ month }}</th>
+            {% endfor %}
+            <th class="fixed">計</th>
+        </tr>
+
+        {% for year, money_list in money_dict.items %}
+            <tr>
+                <th class="fixed">{{ year }}</th>
+                {% for money in money_list %}
+                    <td>{{ money }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="graph">
+    {% if chart %}
+        <img src="data:image/png;base64, {{chart|safe}}">
+    {% endif %}
+</div>
+
+{% endblock content %}

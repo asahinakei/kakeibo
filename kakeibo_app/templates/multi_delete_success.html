@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css-file %}
+<link rel="stylesheet" href="{% static 'kakeibo_app/success.css' %}" />
+{% endblock css-file %}
+
+{% block content %}
+<div class="subtitle">
+    <h2>まとめて削除</h2>
+</div>
+<div class="success-message">
+    <p>削除が完了しました</p>
+    <p>支出項目：{{ cost }}</p>
+    <p>開始期間：{{ form.year_1.value }}年 {{ form.month_1.value }}月から</p>
+    <p>終了期間：{{ form.year_2.value }}年 {{ form.month_2.value }}月まで</p>
+    <a href="{% url 'kakeibo_app:multi_delete_start' %}">続けてまとめて削除する</a>
+</div>
+{% endblock content %}

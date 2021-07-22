@@ -1,0 +1,81 @@
+header {
+  width: auto;
+}
+
+main {
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 5vh;
+}
+
+main .table {
+  width: 95%;
+  height: 75vh;
+  overflow: scroll;
+  border-radius: 5px;
+}
+
+main .table .fixed {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+
+main .table .fixed.over {
+  z-index: 5;
+}
+
+main .table table {
+  background-color: white;
+  border-spacing: 0;
+  margin: 5% auto;
+  text-align: center;
+  border: 1px solid grey;
+  font-size: 1.3rem;
+  white-space: nowrap;
+}
+
+main .table table tr, main .table table th, main .table table td {
+  border: 2px solid grey;
+}
+
+main .table table td {
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  main form p {
+    margin: auto 10px;
+  }
+  main form p select {
+    font-size: 1.5rem;
+  }
+  main form input {
+    font-size: 1.5rem;
+  }
+  main .table {
+    overflow: auto;
+  }
+  main .table table {
+    margin: 1% auto;
+  }
+}
+
+footer {
+  width: auto;
+}
+/*# sourceMappingURL=table.css.map */
