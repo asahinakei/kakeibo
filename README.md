@@ -2,7 +2,7 @@
 家計簿の作成ができるWebアプリケーションになります。
 
 # URL
-https//asahinakei-kakeibo.herokuapp.com
+https://asahinakei-kakeibo.herokuapp.com
 
 # 使用方法
 使用するためには、はじめに新規登録が必要です。<br>ユーザーが家計簿に保存するデータは他のユーザとは共有されませんので、ログインしなければアプリは使用できません。
